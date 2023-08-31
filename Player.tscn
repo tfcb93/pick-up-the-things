@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwwebxkq48ryo"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_63cjb"]
+[ext_resource type="Script" path="res://CameraPivot.gd" id="2_y2w1w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10f2k"]
+albedo_color = Color(0.0705882, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_h2od7"]
+material = SubResource("StandardMaterial3D_10f2k")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8c8xk"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_63cjb")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
+mesh = SubResource("SphereMesh_h2od7")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_8c8xk")
+
+[node name="CameraPivot" type="SpringArm3D" parent="."]
+spring_length = 7.0
+margin = 0.2
+script = ExtResource("2_y2w1w")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
