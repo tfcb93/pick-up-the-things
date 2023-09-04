@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Playing with 3d"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Events="*res://Scripts/Events.gd"
 
 [input]
 

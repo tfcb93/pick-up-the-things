@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxcbkl657ae5t"]
+[gd_scene load_steps=7 format=3 uid="uid://dxcbkl657ae5t"]
 
-[ext_resource type="PackedScene" uid="uid://dwwebxkq48ryo" path="res://Player.tscn" id="1_8rov3"]
-[ext_resource type="PackedScene" uid="uid://bxoketgr3vbah" path="res://collectables_list.tscn" id="2_r4ewe"]
+[ext_resource type="PackedScene" uid="uid://dwwebxkq48ryo" path="res://Scenes/Player.tscn" id="1_8rov3"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_cy322"]
+[ext_resource type="PackedScene" uid="uid://bxoketgr3vbah" path="res://Scenes/Collectables_list.tscn" id="2_r4ewe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kejco"]
 size = Vector3(60, 2, 60)
@@ -14,9 +15,11 @@ material = SubResource("StandardMaterial3D_r63fp")
 size = Vector3(60, 2, 60)
 
 [node name="Main" type="Node"]
+script = ExtResource("1_cy322")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape3D_kejco")

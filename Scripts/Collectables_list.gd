@@ -4,7 +4,7 @@ extends Node
 @export var area_height: int = 10;
 @export var total_collectables: int = 10;
 
-@onready var piece = preload("res://Collectable.tscn");
+@onready var piece = preload("res://Scenes/Collectable.tscn");
 
 func _ready():
 	for collectable_number in total_collectables:

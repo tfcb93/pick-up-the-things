@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxoketgr3vbah"]
-
-[ext_resource type="Script" path="res://collectables_list.gd" id="1_3vb0u"]
-
-[node name="CollectablesList" type="Node"]
-script = ExtResource("1_3vb0u")
