@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxcbkl657ae5t"]
+[gd_scene load_steps=6 format=3 uid="uid://dxcbkl657ae5t"]
 
 [ext_resource type="PackedScene" uid="uid://dwwebxkq48ryo" path="res://Scenes/Player.tscn" id="1_8rov3"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_cy322"]
 [ext_resource type="PackedScene" uid="uid://cpl702jbfq1so" path="res://Scenes/Ground.tscn" id="2_3ta80"]
 [ext_resource type="PackedScene" uid="uid://mk0ii2yjg316" path="res://Scenes/UI.tscn" id="4_v474j"]
+[ext_resource type="PackedScene" uid="uid://b3t2i61kitfa6" path="res://Scenes/Window_text.tscn" id="5_a77c1"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_cy322")
@@ -18,3 +19,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.622296, 0)
 
 [node name="UI" parent="." instance=ExtResource("4_v474j")]
+
+[node name="WindowText" parent="." instance=ExtResource("5_a77c1")]
+
+[node name="StartTimer" type="Timer" parent="."]

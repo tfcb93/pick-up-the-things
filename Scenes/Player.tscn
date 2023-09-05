@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwwebxkq48ryo"]
+[gd_scene load_steps=7 format=3 uid="uid://dwwebxkq48ryo"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_xu2wh"]
 [ext_resource type="Script" path="res://Scripts/CameraPivot.gd" id="2_tx15u"]
@@ -10,6 +10,8 @@ albedo_color = Color(0.0705882, 1, 0, 1)
 material = SubResource("StandardMaterial3D_10f2k")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8c8xk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2irp5"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_xu2wh")
@@ -29,3 +31,9 @@ margin = 0.2
 script = ExtResource("2_tx15u")
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+
+[node name="PlayerMagnetField" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerMagnetField"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+shape = SubResource("SphereShape3D_2irp5")

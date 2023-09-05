@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Events="*res://Scripts/Events.gd"
 PlayerGlobals="*res://Scripts/PlayerGlobals.gd"
+WorldGlobals="*res://Scripts/WorldGlobals.gd"
 
 [input]
 

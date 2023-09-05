@@ -13,7 +13,8 @@ func _process(delta):
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	_movement(delta);
+	if not WorldGlobals.timeIsOut:
+		_movement(delta);
 
 func _movement(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left","move_right", "move_forward", "move_back")

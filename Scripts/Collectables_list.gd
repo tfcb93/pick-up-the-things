@@ -1,7 +1,12 @@
 extends Node
 
 @export var area := Vector2(10, 10);
-@export var total_collectables: int = 10;
+@export var total_collectables: int = WorldGlobals.totalCollectables:
+	set(value):
+		total_collectables = value;
+		WorldGlobals.totalCollectables = value;
+	get:
+		return total_collectables
 
 @onready var piece = preload("res://Scenes/Collectable.tscn");
 

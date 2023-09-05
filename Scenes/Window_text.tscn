@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3t2i61kitfa6"]
+
+[ext_resource type="Script" path="res://Scripts/Window_Text.gd" id="1_53qqn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_who8i"]
+font_size = 64
+
+[node name="WindowText" type="CanvasLayer"]
+script = ExtResource("1_53qqn")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="BoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_who8i")
+
+[node name="TextTimer" type="Timer" parent="."]

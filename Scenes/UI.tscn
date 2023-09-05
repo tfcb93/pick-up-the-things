@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://mk0ii2yjg316"]
+[gd_scene load_steps=5 format=3 uid="uid://mk0ii2yjg316"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_ngpye"]
 
@@ -6,6 +6,9 @@
 font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_clw4c"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_4t7gm"]
 font_size = 36
 
 [node name="UI" type="CanvasLayer"]
@@ -24,3 +27,19 @@ label_settings = SubResource("LabelSettings_1oi08")
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_clw4c")
+
+[node name="RunTimer" type="Timer" parent="."]
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="Text - Timer" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+text = "00"
+label_settings = SubResource("LabelSettings_4t7gm")
