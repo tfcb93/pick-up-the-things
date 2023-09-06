@@ -10,6 +10,7 @@ var collectableListScene := preload("res://Scenes/Collectables_list.tscn");
 @export var isRandomSize := false;
 
 func _ready() -> void:
+	Events._restart_game.connect(_on_restart_game);
 	if isRandomSize:
 		floorSize = Vector3(
 			randi_range(10, 100),
@@ -25,3 +26,6 @@ func create_collectable_field(areaSize := Vector2(10, 10)) -> void:
 	collectableList = collectableListScene.instantiate();
 	collectableList.area = areaSize;
 	add_child(collectableList);
+
+func _on_restart_game() -> void:
+	create_collectable_field(Vector2(floorSize.x, floorSize.z));

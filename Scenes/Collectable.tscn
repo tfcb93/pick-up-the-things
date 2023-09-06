@@ -1,12 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpn66wrhw2o6n"]
+[gd_scene load_steps=7 format=3 uid="uid://bpn66wrhw2o6n"]
 
 [ext_resource type="Script" path="res://Scripts/Collectable.gd" id="1_h2fxn"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwsmu"]
-albedo_color = Color(0, 0.447059, 0.447059, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1vn5"]
+albedo_color = Color(0.117647, 0.494118, 0.701961, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_04krr"]
-material = SubResource("StandardMaterial3D_nwsmu")
+material = SubResource("StandardMaterial3D_t1vn5")
+radius = 0.2
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aygvh"]
+albedo_color = Color(0.752941, 0, 0.313726, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_d7yc1"]
+material = SubResource("StandardMaterial3D_aygvh")
 radius = 0.2
 height = 0.5
 
@@ -16,8 +24,12 @@ radius = 0.253292
 [node name="Node3D" type="Area3D"]
 script = ExtResource("1_h2fxn")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="NormalMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_04krr")
+
+[node name="SpecialMesh" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_d7yc1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_gbs3k")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl2g7c30qr7bk"]
+
+[ext_resource type="Script" path="res://Scripts/End_menu.gd" id="1_og54i"]
+
+[node name="End_menu" type="CanvasLayer"]
+script = ExtResource("1_og54i")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_left = 441.0
+offset_top = 493.0
+offset_right = 711.0
+offset_bottom = 573.0
+alignment = 1
+vertical = true
+
+[node name="restart" type="Button" parent="BoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="exit" type="Button" parent="BoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="BoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="BoxContainer/exit" to="." method="_on_exit_pressed"]

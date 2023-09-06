@@ -1,6 +1,6 @@
 extends Node
 
-var totalCollectables := 10;
+var totalCollectables := 100;
 var totalCollected := 0;
 var timeIsOut := false;
-var gameTime := 10;
+var gameTime := 30;

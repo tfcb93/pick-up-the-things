@@ -1,5 +1,10 @@
 extends Area3D
 
+@onready var NormalMesh := $NormalMesh;
+@onready var SpecialMesh := $SpecialMesh;
+
+@export var addTime := 0;
+
 const SPEED := 20.0;
 
 var followPlayer := false;
@@ -12,6 +17,8 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body):
 	if (body.name == 'Player'):
 		Events.emit_signal("_collectable_picked");
+		if addTime != 0:
+			Events.emit_signal("_add_time",addTime);
 		WorldGlobals.totalCollected += 1;
 		queue_free();
 
@@ -20,3 +27,8 @@ func _on_area_entered(area: Area3D) -> void:
 	if(area.name == "PlayerMagnetField"):
 		followPlayer = true;
 		player = area.get_parent();
+
+func change_add_time(value) -> void:
+	addTime = value;
+	NormalMesh.visible = false;
+	SpecialMesh.visible = true;

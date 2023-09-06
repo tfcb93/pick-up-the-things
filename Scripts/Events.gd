@@ -19,3 +19,8 @@ signal _win;
 
 # Lose event
 signal _lose;
+
+
+signal _restart_game;
+
+signal _add_time(time);

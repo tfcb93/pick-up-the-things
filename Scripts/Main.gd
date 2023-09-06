@@ -1,15 +1,14 @@
 extends Node
 
-var score:int = 0;
+var score := 0;
+@onready var endMenu := $End_menu;
+@onready var player := $Player;
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	Events._timer_end.connect(game_finished);
+	Events._restart_game.connect(_on_restart_game);
+	endMenu.visible = false;
 	start_game();
-
-#func _increase_score():
-#	score += 1;
-#	print(score);
 
 func _process(delta: float) -> void:
 	if(WorldGlobals.totalCollected == WorldGlobals.totalCollectables):
@@ -24,3 +23,9 @@ func game_finished() -> void:
 		Events.emit_signal("_win");
 	else:
 		Events.emit_signal("_lose");
+		endMenu.visible = true;
+
+func _on_restart_game() -> void:
+	endMenu.visible = false;
+	player.position = Vector3.ZERO;
+	start_game();
