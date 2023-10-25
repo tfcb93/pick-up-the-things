@@ -14,17 +14,19 @@ func _process(delta: float) -> void:
 	if not runTimer.is_stopped():
 		set_timer_text();
 	
+# Não deveria ter como aumentar o score aqui, só atualizar
 func increase_score() -> void:
 	PlayerGlobals.score += 1;
 	scoreLabel.text = str(PlayerGlobals.score);
 	
 
+# Eu também acho que não deveria começar o timer por aqui, mas sim por outra fonte. Aqui deveria só mostrar o tempo
+# Eu posso olhar o exemplo inicial do godot para ver como ele cuida do tempo, pois ficar enviando sinal toda vez que o tempo muda é ruim
 func start_timer() -> void:
 	runTimer.start(WorldGlobals.gameTime);
 	WorldGlobals.timeIsOut = false;
 
 func game_stop() -> void:
-	print("time stoped");
 	timerLabel.text = "0:000"; # Yeah yeah, I know...
 	runTimer.stop();
 	WorldGlobals.timeIsOut = true;

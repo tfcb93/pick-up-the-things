@@ -36,14 +36,20 @@ layout_mode = 2
 
 [node name="Start Button" type="Button" parent="VBoxContainer/ButtonContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Exit Button")
+focus_neighbor_bottom = NodePath("../Settings Button")
 text = "Start"
 
 [node name="Settings Button" type="Button" parent="VBoxContainer/ButtonContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Start Button")
+focus_neighbor_bottom = NodePath("../Exit Button")
 text = "Settings"
 
 [node name="Exit Button" type="Button" parent="VBoxContainer/ButtonContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Settings Button")
+focus_neighbor_bottom = NodePath("../Start Button")
 text = "Exit"
 
 [connection signal="pressed" from="VBoxContainer/ButtonContainer/Start Button" to="." method="_on_start_button_pressed"]

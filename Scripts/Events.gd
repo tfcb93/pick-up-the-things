@@ -24,3 +24,8 @@ signal _lose;
 signal _restart_game;
 
 signal _add_time(time);
+
+
+signal _is_paused;
+
+signal _is_unpaused;
