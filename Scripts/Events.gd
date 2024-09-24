@@ -20,6 +20,8 @@ signal _win;
 # Lose event
 signal _lose;
 
+signal _game_stop;
+
 
 signal _restart_game;
 

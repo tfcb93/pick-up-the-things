@@ -12,29 +12,30 @@ func _ready():
 	set_as_top_level(true);
 
 func _process(delta):
-	if not WorldGlobals.timeIsOut:
+	if not WorldGlobals.timeIsOut and not WorldGlobals.gameIsStop:
 		_camera_movement();
 	else:
 		game_stop_camera();
 		
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		rotation_degrees.y -= event.relative.x * mouse_sensibility;
-		rotation_degrees.y = wrapf(rotation_degrees.y, 0.0, 360.0);
-		
-		rotation_degrees.x -= event.relative.y * mouse_sensibility;
-		rotation_degrees.x = clamp(rotation_degrees.x, -45.0, 0.0);
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			if invert_wheel_movement and spring_length > 2:
-				spring_length -= 0.1 * wheel_sensibility;
-			elif spring_length < 10:
-				spring_length += 0.1 * wheel_sensibility;
-		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			if invert_wheel_movement and spring_length < 10:
-				spring_length += 0.1 * wheel_sensibility;
-			elif  spring_length > 2:
-				spring_length -= 0.1 * wheel_sensibility;
+	if not WorldGlobals.gameIsStop:
+		if event is InputEventMouseMotion:
+			rotation_degrees.y -= event.relative.x * mouse_sensibility;
+			rotation_degrees.y = wrapf(rotation_degrees.y, 0.0, 360.0);
+			
+			rotation_degrees.x -= event.relative.y * mouse_sensibility;
+			rotation_degrees.x = clamp(rotation_degrees.x, -45.0, 0.0);
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+				if invert_wheel_movement and spring_length > 2:
+					spring_length -= 0.1 * wheel_sensibility;
+				elif spring_length < 10:
+					spring_length += 0.1 * wheel_sensibility;
+			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+				if invert_wheel_movement and spring_length < 10:
+					spring_length += 0.1 * wheel_sensibility;
+				elif  spring_length > 2:
+					spring_length -= 0.1 * wheel_sensibility;
 	
 func _camera_movement() -> void:
 	if Input.is_action_pressed("camera_backward") and spring_length < 10:

@@ -8,6 +8,7 @@ func _ready() -> void:
 	Events._collectable_picked.connect(increase_score);
 	Events._timer_start.connect(start_timer);
 	Events._add_time.connect(_on_add_time);
+	Events.connect("_game_stop", _on_game_stop);
 	runTimer.timeout.connect(game_stop);
 	
 func _process(delta: float) -> void:
@@ -31,6 +32,9 @@ func game_stop() -> void:
 	runTimer.stop();
 	WorldGlobals.timeIsOut = true;
 	Events.emit_signal("_timer_end");
+
+func _on_game_stop() -> void:
+	runTimer.stop();
 
 func set_timer_text():
 	timerLabel.text = "%1.3f" % runTimer.time_left;

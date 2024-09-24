@@ -6,6 +6,8 @@ var mainGameInstance := preload("res://Scenes/Main.tscn");
 
 func _ready() -> void:
 	Events._is_unpaused.connect(_on_unpause);
+	Events.connect("_game_stop", _on_game_stop);
+	Events.connect("_restart_game", _on_game_restart);
 	pause_screen.visible = false;
 	Input.mouse_mode = 2;
 
@@ -33,3 +35,9 @@ func _on_unpause() -> void:
 	isPaused = false;
 	Input.mouse_mode = 2;
 	pause_screen.visible = false;
+	
+func _on_game_stop() -> void:
+	Input.mouse_mode = 0;
+
+func _on_game_restart() -> void:
+	Input.mouse_mode = 2;
