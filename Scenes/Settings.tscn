@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbqm7ejgnkqrc"]
+
+[ext_resource type="Script" path="res://Scripts/Settings.gd" id="1_sdtmj"]
+
+[node name="Settings" type="CanvasLayer"]
+script = ExtResource("1_sdtmj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 272.0
+offset_bottom = 61.0
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+text = "Full screen"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Volume"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
