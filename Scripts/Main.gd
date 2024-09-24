@@ -34,6 +34,10 @@ func game_finished() -> void:
 
 func _on_restart_game() -> void:
 	endMenu.visible = false;
-	WorldGlobals.gameIsStop = false;
 	player.position = Vector3.ZERO;
+	WorldGlobals.gameIsStop = false;
+	WorldGlobals.gameTime = WorldGlobals.game_initial_time;
+	WorldGlobals.totalCollectables = WorldGlobals.game_initial_total_collectable;
+	WorldGlobals.totalCollected = 0;
+	PlayerGlobals.score = 0;
 	start_game();

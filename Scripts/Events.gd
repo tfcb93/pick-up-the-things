@@ -1,4 +1,4 @@
-extends Node
+extends Node;
 
 # signal for when a collectable is picked
 signal _collectable_picked;

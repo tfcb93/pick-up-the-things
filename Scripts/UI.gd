@@ -26,6 +26,7 @@ func increase_score() -> void:
 func start_timer() -> void:
 	runTimer.start(WorldGlobals.gameTime);
 	WorldGlobals.timeIsOut = false;
+	scoreLabel.text = str(PlayerGlobals.score);
 
 func game_stop() -> void:
 	timerLabel.text = "0:000"; # Yeah yeah, I know...
