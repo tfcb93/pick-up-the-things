@@ -6,7 +6,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var camera_pivot = $CameraPivot;
 
-func _process(delta):
+func _process(_delta : float) -> void:
 	camera_pivot.position = position;
 
 func _physics_process(delta: float) -> void:
@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	if not WorldGlobals.timeIsOut:
 		_movement(delta);
 
-func _movement(delta: float) -> void:
+func _movement(_delta: float) -> void:
 	if not WorldGlobals.gameIsStop:
 		var input_dir := Input.get_vector("move_left","move_right", "move_forward", "move_back")
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()

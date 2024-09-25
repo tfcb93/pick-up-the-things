@@ -11,7 +11,7 @@ func _ready():
 	# this is necessary, otherwise the camera will move 
 	set_as_top_level(true);
 
-func _process(delta):
+func _process(_delta: float) -> void:
 	if not WorldGlobals.timeIsOut and not WorldGlobals.gameIsStop:
 		_camera_movement();
 	else:

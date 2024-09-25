@@ -9,12 +9,11 @@ func _ready() -> void:
 	Events.connect("_game_stop", _on_game_stop);
 	Events.connect("_restart_game", _on_game_restart);
 	pause_screen.visible = false;
-	Input.mouse_mode = 2;
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Detect if it's in game and open the menu screen
-	if Input.is_action_just_pressed("pause"):
-		print("pause button pressed");
+	if Input.is_action_just_pressed("pause") and not WorldGlobals.gameIsStop:
 		isPaused = not isPaused;
 		print(isPaused);
 		if isPaused == true:
@@ -28,16 +27,16 @@ func _process(delta: float) -> void:
 func _on_pause() -> void:
 	Events.emit_signal("_is_paused");
 	get_tree().paused = true;
-	Input.mouse_mode = 0;
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE;
 	
 func _on_unpause() -> void:
 	get_tree().paused = false;
 	isPaused = false;
-	Input.mouse_mode = 2;
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
 	pause_screen.visible = false;
 	
 func _on_game_stop() -> void:
-	Input.mouse_mode = 0;
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE;
 
 func _on_game_restart() -> void:
-	Input.mouse_mode = 2;
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;

@@ -48,4 +48,5 @@ func create_bounderies() -> void:
 	
 
 func _on_restart_game() -> void:
+	collectableList.queue_free();
 	create_collectable_field(Vector2(floorSize.x, floorSize.z));

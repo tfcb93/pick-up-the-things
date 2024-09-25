@@ -3,11 +3,13 @@ extends CanvasLayer
 
 @onready var timer := $TextTimer;
 @onready var label := $BoxContainer/Label;
+@onready var final_score: Label = $BoxContainer/final_score
 
 func _ready() -> void:
 	Events._timer_start.connect(start_game);
-	Events._win.connect(win_text);
-	Events._lose.connect(lose_text);
+	Events.connect("_restart_game", _on_restart_game);
+	Events.connect("_win", _on_win);
+	Events.connect("_lose", _on_lose);
 	timer.timeout.connect(clean_label);
 
 
@@ -15,13 +17,17 @@ func start_game() -> void:
 	label.text = "START!";
 	timer.start(1);
 	
-func win_text() -> void:
+func _on_win() -> void:
 	label.text = "YOU WIN!";
-	timer.start(5);
+	final_score.text = "Your final score is: %d" % PlayerGlobals.score;
 	
-func lose_text() -> void:
+func _on_lose() -> void:
 	label.text = "YOU LOSE!";
-	timer.start(5);
-	
+	final_score.text = "Your final score is: %d" % PlayerGlobals.score;
+
+func _on_restart_game() -> void:
+	label.text = "";
+	final_score.text = "";
+
 func clean_label() -> void:
 	label.text = "";

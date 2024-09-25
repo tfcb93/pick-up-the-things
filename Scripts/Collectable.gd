@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body):
 	if (body.name == 'Player'):
-		Events.emit_signal("_collectable_picked");
+		Events.emit_signal("collectable_picked");
 		if addTime != 0:
 			Events.emit_signal("_add_time",addTime);
 		WorldGlobals.totalCollected += 1;

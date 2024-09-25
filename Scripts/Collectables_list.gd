@@ -22,7 +22,3 @@ func _ready():
 		add_child(new_collectable);
 		if add_time != 0:
 			new_collectable.change_add_time(add_time);
-
-
-func _process(delta):
-	pass

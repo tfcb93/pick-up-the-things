@@ -22,4 +22,5 @@ layout_mode = 2
 text = "Exit"
 
 [connection signal="pressed" from="BoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="visibility_changed" from="BoxContainer/restart" to="." method="_on_restart_visibility_changed"]
 [connection signal="pressed" from="BoxContainer/exit" to="." method="_on_exit_pressed"]

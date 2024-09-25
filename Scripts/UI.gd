@@ -5,13 +5,13 @@ extends CanvasLayer
 @onready var timerLabel := $"HBoxContainer2/Text - Timer";
 
 func _ready() -> void:
-	Events._collectable_picked.connect(increase_score);
+	Events.connect("collectable_picked", increase_score);
 	Events._timer_start.connect(start_timer);
 	Events._add_time.connect(_on_add_time);
 	Events.connect("_game_stop", _on_game_stop);
 	runTimer.timeout.connect(game_stop);
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not runTimer.is_stopped():
 		set_timer_text();
 	

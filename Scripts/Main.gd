@@ -10,7 +10,7 @@ func _ready():
 	endMenu.visible = false;
 	start_game();
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if(WorldGlobals.totalCollected == WorldGlobals.totalCollectables):
 		Events.emit_signal("_win");
 		WorldGlobals.gameIsStop = true;

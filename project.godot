@@ -21,6 +21,10 @@ Events="*res://Scripts/Events.gd"
 PlayerGlobals="*res://Scripts/PlayerGlobals.gd"
 WorldGlobals="*res://Scripts/WorldGlobals.gd"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [input]
 
 ui_accept={
