@@ -6,10 +6,17 @@
 script = ExtResource("1_og54i")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
-offset_left = 441.0
-offset_top = 493.0
-offset_right = 711.0
-offset_bottom = 573.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -190.0
+offset_right = 135.0
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 0
 alignment = 1
 vertical = true
 

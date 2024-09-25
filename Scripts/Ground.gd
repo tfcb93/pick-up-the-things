@@ -1,10 +1,12 @@
 extends StaticBody3D
 
 var collectableListScene := preload("res://Scenes/Collectables_list.tscn");
+var obstacle_list_instance := preload("res://Scenes/Obstacles_list.tscn");
 
 @onready var floorMesh := $MeshInstance3D;
 @onready var floorCollision := $CollisionShape3D;
 @onready var collectableList: Node;
+var obstacle_list: Node;
 
 @onready var front_collision: CollisionShape3D = $bounderies/front/front_collision;
 @onready var back_collision: CollisionShape3D = $bounderies/back/back_collision;
@@ -26,8 +28,14 @@ func _ready() -> void:
 	floorMesh.mesh.size = floorSize;
 	floorCollision.shape.size = floorSize;
 	create_bounderies();
+	create_obstacles();
 	create_collectable_field(Vector2(floorSize.x, floorSize.z));
 
+func create_obstacles() -> void:
+	obstacle_list = obstacle_list_instance.instantiate();
+	obstacle_list.area = floorSize;
+	add_child(obstacle_list);
+	
 func create_collectable_field(areaSize := Vector2(10, 10)) -> void:
 	collectableList = collectableListScene.instantiate();
 	collectableList.area = areaSize;

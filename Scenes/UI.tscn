@@ -33,10 +33,14 @@ label_settings = SubResource("LabelSettings_clw4c")
 [node name="RunTimer" type="Timer" parent="."]
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
-offset_left = 1004.0
-offset_top = 10.0
-offset_right = 1122.0
-offset_bottom = 63.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -138.0
+offset_top = 8.0
+offset_right = -20.0
+offset_bottom = 61.0
+grow_horizontal = 0
 alignment = 2
 
 [node name="Text - Timer" type="Label" parent="HBoxContainer2"]
