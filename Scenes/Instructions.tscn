@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://1j5ipae1ksgu"]
+
+[ext_resource type="Script" path="res://Scripts/Instructions.gd" id="1_03r1s"]
+[ext_resource type="Texture2D" uid="uid://cmced6l22s21a" path="res://Resources/Images/instructions.jpg" id="1_tn1p3"]
+
+[node name="Instructions" type="Node"]
+script = ExtResource("1_03r1s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.5
+offset_top = -44.0
+offset_right = 32.5
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
+[node name="Instructions" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(0.2766, 0.226309)
+texture = ExtResource("1_tn1p3")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

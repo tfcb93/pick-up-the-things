@@ -3,17 +3,20 @@
 [ext_resource type="Script" path="res://Scripts/Start_screen.gd" id="1_0tagd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0tmt6"]
-font_size = 32
+font_size = 64
+font_color = Color(1, 0, 1, 1)
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="Node" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("1_0tagd")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 1280.0
 offset_bottom = 720.0
-color = Color(0, 0, 0, 1)
+color = Color(0.47389, 0.905525, 0.0654125, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -26,32 +29,46 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-text = "Pick the things"
+theme_type_variation = &"BigLabel"
+text = "Pick the things!"
 label_settings = SubResource("LabelSettings_0tmt6")
 
-[node name="ButtonContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="ButtonContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Start Button" type="Button" parent="VBoxContainer/ButtonContainer"]
+[node name="Start Button" type="Button" parent="CanvasLayer/VBoxContainer/ButtonContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Exit Button")
-focus_neighbor_bottom = NodePath("../Settings Button")
+focus_neighbor_bottom = NodePath("../Instruction Button")
 text = "Start"
 
-[node name="Settings Button" type="Button" parent="VBoxContainer/ButtonContainer"]
+[node name="Instruction Button" type="Button" parent="CanvasLayer/VBoxContainer/ButtonContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Start Button")
-focus_neighbor_bottom = NodePath("../Exit Button")
+focus_neighbor_bottom = NodePath("../Settings Button")
+text = "Instructions"
+
+[node name="Settings Button" type="Button" parent="CanvasLayer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Start Button")
+focus_neighbor_bottom = NodePath("../Credits Button")
 text = "Settings"
 
-[node name="Exit Button" type="Button" parent="VBoxContainer/ButtonContainer"]
+[node name="Credits Button" type="Button" parent="CanvasLayer/VBoxContainer/ButtonContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Settings Button")
+focus_neighbor_bottom = NodePath("../Exit Button")
+text = "Credits"
+
+[node name="Exit Button" type="Button" parent="CanvasLayer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Credits Button")
 focus_neighbor_bottom = NodePath("../Start Button")
 text = "Exit"
 
-[connection signal="pressed" from="VBoxContainer/ButtonContainer/Start Button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonContainer/Settings Button" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonContainer/Exit Button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonContainer/Start Button" to="CanvasLayer" method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonContainer/Instruction Button" to="CanvasLayer" method="_on_instruction_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonContainer/Settings Button" to="CanvasLayer" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonContainer/Exit Button" to="CanvasLayer" method="_on_exit_button_pressed"]

@@ -9,8 +9,13 @@ func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Game.tscn");
 
 func _on_settings_button_pressed() -> void:
-	print("Press settings");
+	# only as a testxss
+	get_tree().change_scene_to_file("res://Scenes/Settings.tscn");
 
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit();
+
+
+func _on_instruction_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Instructions.tscn");

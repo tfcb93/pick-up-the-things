@@ -1,0 +1,52 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bilciu2sbv7on"]
+
+[ext_resource type="FontFile" uid="uid://bpnkx737td50n" path="res://Resources/Fonts/Lilita_One/LilitaOne-Regular.ttf" id="1_wtf4s"]
+[ext_resource type="FontFile" uid="uid://basrgy0817uum" path="res://Resources/Fonts/Matemasie/Matemasie-Regular.ttf" id="1_xo68n"]
+[ext_resource type="Texture2D" uid="uid://buwohe43nm0oe" path="res://Resources/Images/btn_disabled.png" id="3_63dk8"]
+[ext_resource type="Texture2D" uid="uid://e2kvacssf6dw" path="res://Resources/Images/btn_focus.png" id="3_e0r3u"]
+[ext_resource type="Texture2D" uid="uid://drweb02xypt35" path="res://Resources/Images/btn_hover.png" id="3_s6fkv"]
+[ext_resource type="Texture2D" uid="uid://70p3bv6ogynl" path="res://Resources/Images/btn.png" id="4_c5qsj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w8uqf"]
+texture = ExtResource("3_63dk8")
+texture_margin_left = 11.0
+texture_margin_top = 10.0
+texture_margin_right = 11.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fvgld"]
+texture = ExtResource("3_e0r3u")
+texture_margin_left = 11.0
+texture_margin_top = 10.0
+texture_margin_right = 11.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j87c3"]
+texture = ExtResource("3_s6fkv")
+texture_margin_left = 11.0
+texture_margin_top = 10.0
+texture_margin_right = 11.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cmsm7"]
+texture = ExtResource("4_c5qsj")
+texture_margin_left = 11.0
+texture_margin_top = 10.0
+texture_margin_right = 11.0
+texture_margin_bottom = 10.0
+
+[resource]
+BigLabel/base_type = &"Label"
+BigLabel/font_sizes/font_size = 64
+BigLabel/fonts/font = ExtResource("1_xo68n")
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0.396078, 0.811765, 0.898039, 1)
+Button/colors/font_hover_color = Color(0.372549, 0.803922, 0.894118, 1)
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_wtf4s")
+Button/styles/disabled = SubResource("StyleBoxTexture_w8uqf")
+Button/styles/focus = SubResource("StyleBoxTexture_fvgld")
+Button/styles/hover = SubResource("StyleBoxTexture_j87c3")
+Button/styles/normal = SubResource("StyleBoxTexture_cmsm7")
+Label/font_sizes/font_size = 36
+Label/fonts/font = ExtResource("1_wtf4s")

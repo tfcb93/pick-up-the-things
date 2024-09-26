@@ -6,15 +6,26 @@
 script = ExtResource("1_sdtmj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_right = 272.0
-offset_bottom = 61.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -30.5
+offset_right = 136.0
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
 text = "Full screen"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
+theme_override_constants/separation = 107
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -22,4 +33,13 @@ text = "Volume"
 
 [node name="HSlider" type="HSlider" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
+layout_direction = 3
 layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "back"
+
+[connection signal="toggled" from="VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
