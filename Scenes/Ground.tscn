@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpl702jbfq1so"]
+[gd_scene load_steps=11 format=3 uid="uid://cpl702jbfq1so"]
 
 [ext_resource type="Script" path="res://Scripts/Ground.gd" id="1_ljq8b"]
 
@@ -19,6 +19,13 @@ size = Vector3(60, 2, 60)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0mlie"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r7rd8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_no7ta"]
+albedo_color = Color(0.198641, 0.622104, 0.744241, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a05e3"]
+material = SubResource("StandardMaterial3D_no7ta")
+size = Vector3(60, 2, 60)
 
 [node name="Ground" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -51,3 +58,7 @@ shape = SubResource("BoxShape3D_0mlie")
 
 [node name="right_collision" type="CollisionShape3D" parent="bounderies/right"]
 shape = SubResource("BoxShape3D_r7rd8")
+
+[node name="infinite floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(125.276, 0, 0, 0, 1, 0, 0, 0, 121.484, 0, -0.617599, 0)
+mesh = SubResource("BoxMesh_a05e3")
