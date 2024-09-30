@@ -62,3 +62,7 @@ shape = SubResource("BoxShape3D_r7rd8")
 [node name="infinite floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(125.276, 0, 0, 0, 1, 0, 0, 0, 121.484, 0, -0.617599, 0)
 mesh = SubResource("BoxMesh_a05e3")
+
+[node name="obstacles" type="Node" parent="."]
+
+[node name="collectables" type="Node" parent="."]

@@ -15,7 +15,6 @@ func _process(_delta: float) -> void:
 	# Detect if it's in game and open the menu screen
 	if Input.is_action_just_pressed("pause") and not WorldGlobals.gameIsStop:
 		isPaused = not isPaused;
-		print(isPaused);
 		if isPaused == true:
 			_on_pause();
 			pause_screen.visible = true;
