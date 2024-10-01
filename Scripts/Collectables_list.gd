@@ -2,6 +2,10 @@ extends Node
 
 @onready var collectable_instance = preload("res://Scenes/Collectable.tscn");
 
+@export_range(1.0, 2.0, 0.1) var min_obstacle_distance: float = 1.2;
+@export_range(1.0, 2.0, 0.1) var min_collectable_distance: float = 1.0;
+@export_range(1.0, 2.0, 0.1) var min_player_distance: float = 1.0;
+
 func add_to_collectables_list(area_x_0: float, area_x_1: float, area_z_0: float, area_z_1: float, sub_area_obstacle_pos: Vector3, total_area_collectables: int) -> void:
 	var remaning_collectables_in_area := total_area_collectables if (total_area_collectables > 0) else 0;
 	var new_collectable_pos: Array[Vector3] = [];
@@ -10,11 +14,13 @@ func add_to_collectables_list(area_x_0: float, area_x_1: float, area_z_0: float,
 		var col_x := randf_range(area_x_0, area_x_1);
 		var col_z := randf_range(area_z_0, area_z_1);
 		var collectable_pos := Vector3(col_x, 0, col_z);
-		if (collectable_pos.distance_squared_to(sub_area_obstacle_pos) < 1.2):
+		if (collectable_pos.distance_squared_to(PlayerGlobals.initial_position) < min_player_distance):
+			continue;
+		if (collectable_pos.distance_squared_to(sub_area_obstacle_pos) < min_obstacle_distance):
 			continue;
 		# I'm not a fan of this, but this is the way I thought on verifying the distance over each already generated collectable position.
 		for used_pos in new_collectable_pos:
-			if(collectable_pos.distance_squared_to(used_pos) < 1.0):
+			if(collectable_pos.distance_squared_to(used_pos) < min_collectable_distance):
 				do_it_again = true;
 				break;
 		if do_it_again:
