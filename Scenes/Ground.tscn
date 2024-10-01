@@ -1,6 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpl702jbfq1so"]
+[gd_scene load_steps=13 format=3 uid="uid://cpl702jbfq1so"]
 
 [ext_resource type="Script" path="res://Scripts/Ground.gd" id="1_ljq8b"]
+[ext_resource type="PackedScene" uid="uid://dxeofgv7qsibv" path="res://Scenes/Obstacles_list.tscn" id="2_nrdws"]
+[ext_resource type="PackedScene" uid="uid://bxoketgr3vbah" path="res://Scenes/Collectables_list.tscn" id="3_ohmgy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kejco"]
 size = Vector3(60, 2, 60)
@@ -63,6 +65,6 @@ shape = SubResource("BoxShape3D_r7rd8")
 transform = Transform3D(125.276, 0, 0, 0, 1, 0, 0, 0, 121.484, 0, -0.617599, 0)
 mesh = SubResource("BoxMesh_a05e3")
 
-[node name="obstacles" type="Node" parent="."]
+[node name="obstacles_list" parent="." instance=ExtResource("2_nrdws")]
 
-[node name="collectables" type="Node" parent="."]
+[node name="collectables_list" parent="." instance=ExtResource("3_ohmgy")]
