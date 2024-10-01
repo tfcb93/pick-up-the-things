@@ -18,6 +18,7 @@ var total_ground_area := Vector3(0, 0, 0); # Initial area;
 var area_size_shift := 0.0; # How much to shift from (0, 1, 0). Value should always be negative;
 @export_range(1, 10, 1) var side_area_division := 4; ## Divides area for obstacles. Each subdivision will have 1 obstacle. The value is applicable to the side, e.g. 4 will be 4 columns and 4 rows, total of 16 sub areas
 @export_range(5, 20, 5) var area_ratio := 10; ## Area ratio is how much size the area will have for each subarea, e.g.: 10 means 10 * side_area_division = total_ground_area;
+@export_range(0.1, 5, 0.1) var sub_area_padding := 1.5;
 
 func _ready() -> void:
 	Events._restart_game.connect(_on_restart_game);
@@ -39,10 +40,14 @@ func generate_per_sub_area() -> void:
 	var max_collectable_per_area := WorldGlobals.totalCollectables / side_area_division ** 2;
 	for x in side_area_division:
 		for z in side_area_division:
+			var area_x_0 := ((x * divided_size) + sub_area_padding) + area_size_shift;
+			var area_x_1 := (((x + 1) * divided_size) - sub_area_padding) + area_size_shift;
+			var area_z_0 := ((z * divided_size) + sub_area_padding) + area_size_shift;
+			var area_z_1 := (((z + 1) * divided_size) - sub_area_padding) + area_size_shift;
 			
-			var sub_area_obstacle_pos:Vector3 = obstacles_list.add_to_obstacle_list((x * divided_size) + area_size_shift, ((x + 1) * divided_size) + area_size_shift, (z * divided_size) + area_size_shift, ((z + 1) * divided_size) + area_size_shift);
+			var sub_area_obstacle_pos:Vector3 = obstacles_list.add_to_obstacle_list(area_x_0, area_x_1, area_z_0, area_z_1);
 			var collectables_for_this_sub_area := max_collectable_per_area if (remaining_collectables - max_collectable_per_area > max_collectable_per_area) else remaining_collectables;
-			collectables_list.add_to_collectables_list((x * divided_size) + area_size_shift, ((x + 1) * divided_size) + area_size_shift, (z * divided_size) + area_size_shift, ((z + 1) * divided_size) + area_size_shift, sub_area_obstacle_pos, collectables_for_this_sub_area);
+			collectables_list.add_to_collectables_list(area_x_0, area_x_1, area_z_0, area_z_1, sub_area_obstacle_pos, collectables_for_this_sub_area);
 			remaining_collectables -= collectables_for_this_sub_area;
 
 
