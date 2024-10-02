@@ -11,7 +11,7 @@ func add_to_obstacle_list(area_x_0: float, area_x_1: float, area_z_0: float, are
 		var sub_z := randf_range(area_z_0, area_z_1);
 		
 		obstacle_pos = Vector3(sub_x, 0, sub_z);
-		if (obstacle_pos.distance_squared_to(PlayerGlobals.initial_position) < min_player_distance):
+		if (obstacle_pos.distance_squared_to(player_globals.initial_position) < min_player_distance):
 			continue;
 		var new_obstacle := obstacle_instance.instantiate();
 		add_child(new_obstacle);

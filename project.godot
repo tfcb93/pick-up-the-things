@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Events="*res://Scripts/Events.gd"
-PlayerGlobals="*res://Scripts/PlayerGlobals.gd"
-WorldGlobals="*res://Scripts/WorldGlobals.gd"
+events="*res://Scripts/Events.gd"
+player_globals="*res://Scripts/PlayerGlobals.gd"
+globals="*res://Scripts/WorldGlobals.gd"
 
 [debug]
 

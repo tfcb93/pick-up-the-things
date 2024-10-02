@@ -5,10 +5,10 @@ extends CanvasLayer
 @onready var timerLabel := $"HBoxContainer2/Text - Timer";
 
 func _ready() -> void:
-	Events.connect("collectable_picked", increase_score);
-	Events._timer_start.connect(start_timer);
-	Events._add_time.connect(_on_add_time);
-	Events.connect("_game_stop", _on_game_stop);
+	events.connect("collectable_picked", increase_score);
+	events._timer_start.connect(start_timer);
+	events._add_time.connect(_on_add_time);
+	events.connect("_game_stop", _on_game_stop);
 	runTimer.timeout.connect(game_stop);
 	
 func _process(_delta: float) -> void:
@@ -17,22 +17,22 @@ func _process(_delta: float) -> void:
 	
 # Não deveria ter como aumentar o score aqui, só atualizar
 func increase_score() -> void:
-	PlayerGlobals.score += 1;
-	scoreLabel.text = str(PlayerGlobals.score);
+	player_globals.score += 1;
+	scoreLabel.text = str(player_globals.score);
 	
 
 # Eu também acho que não deveria começar o timer por aqui, mas sim por outra fonte. Aqui deveria só mostrar o tempo
 # Eu posso olhar o exemplo inicial do godot para ver como ele cuida do tempo, pois ficar enviando sinal toda vez que o tempo muda é ruim
 func start_timer() -> void:
-	runTimer.start(WorldGlobals.gameTime);
-	WorldGlobals.timeIsOut = false;
-	scoreLabel.text = str(PlayerGlobals.score);
+	runTimer.start(globals.gameTime);
+	globals.timeIsOut = false;
+	scoreLabel.text = str(player_globals.score);
 
 func game_stop() -> void:
 	timerLabel.text = "0:000"; # Yeah yeah, I know...
 	runTimer.stop();
-	WorldGlobals.timeIsOut = true;
-	Events.emit_signal("_timer_end");
+	globals.timeIsOut = true;
+	events.emit_signal("_timer_end");
 
 func _on_game_stop() -> void:
 	runTimer.stop();

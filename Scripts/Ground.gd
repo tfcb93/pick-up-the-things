@@ -21,7 +21,7 @@ var area_size_shift := 0.0; # How much to shift from (0, 1, 0). Value should alw
 @export_range(0.1, 5, 0.1) var sub_area_padding := 1.5;
 
 func _ready() -> void:
-	Events._restart_game.connect(_on_restart_game);
+	events._restart_game.connect(_on_restart_game);
 
 	# make area proportional to the number of obstacles using a ratio
 	total_ground_area = Vector3(side_area_division * area_ratio, 1, side_area_division * area_ratio);
@@ -36,8 +36,8 @@ func _ready() -> void:
 
 func generate_per_sub_area() -> void:
 	var divided_size := total_ground_area.x / side_area_division;
-	var remaining_collectables := WorldGlobals.totalCollectables;
-	var max_collectable_per_area := WorldGlobals.totalCollectables / side_area_division ** 2;
+	var remaining_collectables := globals.totalCollectables;
+	var max_collectable_per_area := globals.totalCollectables / side_area_division ** 2;
 	for x in side_area_division:
 		for z in side_area_division:
 			var area_x_0 := ((x * divided_size) + sub_area_padding) + area_size_shift;

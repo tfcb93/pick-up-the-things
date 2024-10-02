@@ -1,4 +1,4 @@
-extends SpringArm3D
+extends SpringArm3D;
 
 @onready var camera = $Camera3D;
 
@@ -12,13 +12,13 @@ func _ready():
 	set_as_top_level(true);
 
 func _process(_delta: float) -> void:
-	if not WorldGlobals.timeIsOut and not WorldGlobals.gameIsStop:
+	if not globals.timeIsOut and not globals.gameIsStop:
 		_camera_movement();
 	else:
 		game_stop_camera();
 		
 func _unhandled_input(event: InputEvent) -> void:
-	if not WorldGlobals.gameIsStop:
+	if not globals.gameIsStop:
 		if event is InputEventMouseMotion:
 			rotation_degrees.y -= event.relative.x * mouse_sensibility;
 			rotation_degrees.y = wrapf(rotation_degrees.y, 0.0, 360.0);

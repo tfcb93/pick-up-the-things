@@ -12,11 +12,11 @@ func _process(_delta : float) -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	if not WorldGlobals.timeIsOut:
+	if not globals.timeIsOut:
 		_movement(delta);
 
 func _movement(_delta: float) -> void:
-	if not WorldGlobals.gameIsStop:
+	if not globals.gameIsStop:
 		var input_dir := Input.get_vector("move_left","move_right", "move_forward", "move_back")
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		direction = direction.rotated(Vector3.UP, camera_pivot.rotation.y).normalized();

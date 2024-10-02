@@ -13,7 +13,7 @@ func _on_exit_pressed() -> void:
 
 
 func _on_restart_pressed() -> void:
-	Events.emit_signal("_restart_game");
+	events.emit_signal("_restart_game");
 
 
 func _on_restart_visibility_changed() -> void:

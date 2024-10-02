@@ -3,11 +3,11 @@ extends CanvasLayer
 @onready var focus_button := $VBoxContainer/Back;
 
 func _ready():
-	Events._is_paused.connect(_on_open_menu);
+	events._is_paused.connect(_on_open_menu);
 
 func _on_reset_pressed():
-	Events.emit_signal("_restart_game");
-	Events.emit_signal("_is_unpaused");
+	events.emit_signal("_restart_game");
+	events.emit_signal("_is_unpaused");
 
 
 func _on_exit_pressed():
@@ -20,4 +20,4 @@ func _on_open_menu():
 
 
 func _on_back_pressed():
-	Events.emit_signal("_is_unpaused");
+	events.emit_signal("_is_unpaused");
