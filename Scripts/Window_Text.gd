@@ -1,15 +1,15 @@
-extends CanvasLayer
+extends CanvasLayer;
 
 
 @onready var timer := $TextTimer;
 @onready var label := $BoxContainer/Label;
-@onready var final_score: Label = $BoxContainer/final_score
+@onready var final_score := $BoxContainer/final_score
 
 func _ready() -> void:
-	events._timer_start.connect(start_game);
-	events.connect("_restart_game", _on_restart_game);
-	events.connect("_win", _on_win);
-	events.connect("_lose", _on_lose);
+	events.connect("timer_start", start_game);
+	events.connect("restart_game", _on_restart_game);
+	events.connect("win", _on_win);
+	events.connect("lose", _on_lose);
 	timer.timeout.connect(clean_label);
 
 

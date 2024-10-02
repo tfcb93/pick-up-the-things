@@ -1,27 +1,25 @@
 extends StaticBody3D;
 
-var collectable_instance := preload("res://Scenes/Collectable.tscn");
-
-@onready var floorMesh := $MeshInstance3D;
-@onready var floorCollision := $CollisionShape3D;
+@onready var floor_mesh := $MeshInstance3D;
+@onready var floor_collision := $CollisionShape3D;
 @onready var obstacles_list := $obstacles_list;
 @onready var collectables_list := $collectables_list;
-# var obstacle_list: Node;
+# borders
+@onready var front_collision := $bounderies/front/front_collision;
+@onready var back_collision := $bounderies/back/back_collision;
+@onready var left_collision := $bounderies/left/left_collision;
+@onready var right_collision := $bounderies/right/right_collision;
 
-@onready var front_collision: CollisionShape3D = $bounderies/front/front_collision;
-@onready var back_collision: CollisionShape3D = $bounderies/back/back_collision;
-@onready var left_collision: CollisionShape3D = $bounderies/left/left_collision;
-@onready var right_collision: CollisionShape3D = $bounderies/right/right_collision;
-
-
-var total_ground_area := Vector3(0, 0, 0); # Initial area;
-var area_size_shift := 0.0; # How much to shift from (0, 1, 0). Value should always be negative;
 @export_range(1, 10, 1) var side_area_division := 4; ## Divides area for obstacles. Each subdivision will have 1 obstacle. The value is applicable to the side, e.g. 4 will be 4 columns and 4 rows, total of 16 sub areas
 @export_range(5, 20, 5) var area_ratio := 10; ## Area ratio is how much size the area will have for each subarea, e.g.: 10 means 10 * side_area_division = total_ground_area;
 @export_range(0.1, 5, 0.1) var sub_area_padding := 1.5;
 
+var collectable_instance := preload("res://Scenes/Collectable.tscn");
+var area_size_shift := 0.0; # How much to shift from (0, 1, 0). Value should always be negative;
+var total_ground_area := Vector3(0, 0, 0); # Initial area;
+
 func _ready() -> void:
-	events._restart_game.connect(_on_restart_game);
+	events.connect("restart_game", _on_restart_game);
 
 	# make area proportional to the number of obstacles using a ratio
 	total_ground_area = Vector3(side_area_division * area_ratio, 1, side_area_division * area_ratio);
@@ -29,15 +27,15 @@ func _ready() -> void:
 		print("Something went wrong when calculating the floor area");
 		get_tree().quit(1);
 	area_size_shift = ((side_area_division * area_ratio) / 2) * -1;
-	floorMesh.mesh.size = total_ground_area;
-	floorCollision.shape.size = total_ground_area;
+	floor_mesh.mesh.size = total_ground_area;
+	floor_collision.shape.size = total_ground_area;
 	create_bounderies();
 	generate_per_sub_area();
 
 func generate_per_sub_area() -> void:
 	var divided_size := total_ground_area.x / side_area_division;
-	var remaining_collectables := globals.totalCollectables;
-	var max_collectable_per_area := globals.totalCollectables / side_area_division ** 2;
+	var remaining_collectables := globals.total_collectables;
+	var max_collectable_per_area := globals.total_collectables / side_area_division ** 2;
 	for x in side_area_division:
 		for z in side_area_division:
 			var area_x_0 := ((x * divided_size) + sub_area_padding) + area_size_shift;

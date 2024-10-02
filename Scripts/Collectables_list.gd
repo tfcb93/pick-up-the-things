@@ -1,14 +1,27 @@
-extends Node
+extends Node;
 
-@onready var collectable_instance = preload("res://Scenes/Collectable.tscn");
+@onready var collectable_instance := preload("res://Scenes/Collectable.tscn");
 
-@export_range(1.0, 2.0, 0.1) var min_obstacle_distance: float = 1.2;
-@export_range(1.0, 2.0, 0.1) var min_collectable_distance: float = 1.0;
-@export_range(1.0, 2.0, 0.1) var min_player_distance: float = 1.0;
+@export_category("Collectable List")
+@export_subgroup("Timer Probabilities")
 @export_range(30, 70, 1) var timer_collectable_probability := 30; ## Probability of a timer collectable (add 1 second on your timer) to appear in the field. I decided to close between 30 and 70 since I'm not shure about the probability distribution.
+@export_subgroup("Obstacle Distances")
+@export_range(1.0, 2.0, 0.1) var min_obstacle_distance := 1.2; ## Minimal distance to generate a collectable from a obstacle
+@export_range(1.0, 2.0, 0.1) var min_collectable_distance := 1.0; ## Minimal distance to generate a collectable from another collectable
+@export_range(1.0, 2.0, 0.1) var min_player_distance := 1.0; ## Minimal distance to generate a collectable from the player initial position
 
 var timer_collectables_generated := 0;
 
+# This has a bunch of parameters.
+# I know I could pass something like a dictionary or an array for the areas values, specially I'm not changing anything so it doesn't replace it's values
+# but I made this way from the start, and think it's better to show each value on the parameter here.
+# Also, I don't mind copying 4 float values to it. I don't think it will be a huge impact on memory for this game.
+# For the other elements, it's more of what godot engine prefer passing too as well. 
+
+# area_x_0, area_z_0: Initial coordnate for the area. I'm always assuming this is a point "smaller" than (area_x_1, area_z_1);
+# area_x_1, area_z_1: Final coordnare for the area.
+# sub_area_obstacle_pos: Position of the obstacle in the area
+# total_area_collectables: A value of all the collectables for the defined area.
 func add_to_collectables_list(area_x_0: float, area_x_1: float, area_z_0: float, area_z_1: float, sub_area_obstacle_pos: Vector3, total_area_collectables: int) -> void:
 	var remaning_collectables_in_area := total_area_collectables if (total_area_collectables > 0) else 0;
 	var new_collectable_pos: Array[Vector3] = [];
@@ -26,7 +39,7 @@ func add_to_collectables_list(area_x_0: float, area_x_1: float, area_z_0: float,
 			if(collectable_pos.distance_squared_to(used_pos) < min_collectable_distance):
 				do_it_again = true;
 				break;
-		if do_it_again:
+		if (do_it_again):
 			do_it_again = false;
 			continue;
 		var new_collectable := collectable_instance.instantiate();

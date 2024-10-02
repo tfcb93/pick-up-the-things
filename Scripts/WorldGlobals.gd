@@ -1,11 +1,11 @@
-extends Node
+extends Node;
 
 const game_initial_time := 30.0;
 const game_initial_total_collectable := 100;
 const game_max_timer_collectables := 30;
 
-var totalCollectables := game_initial_total_collectable;
-var totalCollected := 0;
-var timeIsOut := false;
-var gameTime := game_initial_time;
-var gameIsStop := false;
+var total_collectables := game_initial_total_collectable;
+var total_collected := 0;
+var time_is_out := false;
+var game_time := game_initial_time;
+var game_is_stop := false;

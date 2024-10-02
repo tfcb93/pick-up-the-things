@@ -1,7 +1,8 @@
 extends Node;
 
+@export_range(1.0, 2.0, 0.1) var min_player_distance := 1.0;
+
 var obstacle_instance := preload("res://Scenes/Obstacle.tscn");
-@export_range(1.0, 2.0, 0.1) var min_player_distance: float = 1.0;
 
 func add_to_obstacle_list(area_x_0: float, area_x_1: float, area_z_0: float, area_z_1: float) -> Vector3:
 	var isGenerating := true;
