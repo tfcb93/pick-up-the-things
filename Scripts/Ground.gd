@@ -11,8 +11,8 @@ extends StaticBody3D;
 @onready var right_collision := $bounderies/right/right_collision;
 
 @export_range(1, 10, 1) var side_area_division := 4; ## Divides area for obstacles. Each subdivision will have 1 obstacle. The value is applicable to the side, e.g. 4 will be 4 columns and 4 rows, total of 16 sub areas
-@export_range(5, 20, 5) var area_ratio := 10; ## Area ratio is how much size the area will have for each subarea, e.g.: 10 means 10 * side_area_division = total_ground_area;
-@export_range(0.1, 5, 0.1) var sub_area_padding := 1.5;
+@export_range(5, 20, 5) var area_ratio := 10; ## Area ratio is how much size the area will have for each subarea, e.g.: 10 means 10 * side_area_division = total_ground_area.
+@export_range(0.1, 5, 0.1) var sub_area_padding := 1.5; ## Padding around the sub areas, making this areas a bit smaller inside for placement, not allowing obstacles and collectables overflow areas. 
 
 var collectable_instance := preload("res://Scenes/Collectable.tscn");
 var area_size_shift := 0.0; # How much to shift from (0, 1, 0). Value should always be negative;
