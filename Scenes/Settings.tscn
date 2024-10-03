@@ -5,6 +5,13 @@
 [node name="Settings" type="CanvasLayer"]
 script = ExtResource("1_sdtmj")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -20,20 +27,28 @@ grow_vertical = 2
 
 [node name="fullscreen" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Button")
+focus_neighbor_bottom = NodePath("../invert_scroll")
 text = "Full screen"
 
 [node name="invert_scroll" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../fullscreen")
+focus_neighbor_bottom = NodePath("../show_mili")
 text = "Invert zoom scroll"
 
 [node name="show_mili" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../invert_scroll")
+focus_neighbor_bottom = NodePath("../Button")
 button_pressed = true
 text = "Show miliseconds
 "
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../show_mili")
+focus_neighbor_bottom = NodePath("../fullscreen")
 text = "back"
 
 [connection signal="toggled" from="VBoxContainer/fullscreen" to="." method="_on_check_button_toggled"]

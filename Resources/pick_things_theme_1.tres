@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://bilciu2sbv7on"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://bilciu2sbv7on"]
 
 [ext_resource type="FontFile" uid="uid://bpnkx737td50n" path="res://Resources/Fonts/Lilita_One/LilitaOne-Regular.ttf" id="1_wtf4s"]
 [ext_resource type="FontFile" uid="uid://basrgy0817uum" path="res://Resources/Fonts/Matemasie/Matemasie-Regular.ttf" id="1_xo68n"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://e2kvacssf6dw" path="res://Resources/Images/btn_focus.png" id="3_e0r3u"]
 [ext_resource type="Texture2D" uid="uid://drweb02xypt35" path="res://Resources/Images/btn_hover.png" id="3_s6fkv"]
 [ext_resource type="Texture2D" uid="uid://70p3bv6ogynl" path="res://Resources/Images/btn.png" id="4_c5qsj"]
+[ext_resource type="Texture2D" uid="uid://exmomedurdq0" path="res://Resources/Images/enable-check-button.png" id="7_d6vqi"]
+[ext_resource type="Texture2D" uid="uid://t8gmjwfcsxgk" path="res://Resources/Images/disable-check-button.png" id="8_jo6pi"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w8uqf"]
 texture = ExtResource("3_63dk8")
@@ -38,14 +40,39 @@ texture_margin_bottom = 10.0
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j61mh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_awjfi"]
+texture = ExtResource("3_e0r3u")
+texture_margin_left = 11.0
+texture_margin_top = 10.0
+texture_margin_right = 11.0
+texture_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_30c1o"]
+texture = ExtResource("3_s6fkv")
+texture_margin_left = 11.0
+texture_margin_top = 10.0
+texture_margin_right = 11.0
+texture_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0i1vx"]
+texture = ExtResource("4_c5qsj")
+texture_margin_left = 11.0
+texture_margin_top = 10.0
+texture_margin_right = 11.0
+texture_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_id1q4"]
+texture = ExtResource("4_c5qsj")
+texture_margin_left = 11.0
+texture_margin_top = 10.0
+texture_margin_right = 11.0
+texture_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ca2iu"]
+texture = ExtResource("4_c5qsj")
+texture_margin_left = 11.0
+texture_margin_top = 10.0
+texture_margin_right = 11.0
+texture_margin_bottom = 10.0
 
 [resource]
 BigLabel/base_type = &"Label"
@@ -65,6 +92,8 @@ CheckButton/colors/font_focus_color = Color(0, 0, 0, 1)
 CheckButton/colors/font_hover_color = Color(0, 0, 0, 1)
 CheckButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 CheckButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+CheckButton/icons/checked = ExtResource("7_d6vqi")
+CheckButton/icons/unchecked = ExtResource("8_jo6pi")
 CheckButton/styles/disabled = SubResource("StyleBoxTexture_j61mh")
 CheckButton/styles/focus = SubResource("StyleBoxTexture_awjfi")
 CheckButton/styles/hover = SubResource("StyleBoxTexture_30c1o")

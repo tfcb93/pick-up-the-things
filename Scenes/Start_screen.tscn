@@ -72,4 +72,5 @@ text = "Exit"
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonContainer/Start Button" to="CanvasLayer" method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonContainer/Instruction Button" to="CanvasLayer" method="_on_instruction_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonContainer/Settings Button" to="CanvasLayer" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonContainer/Credits Button" to="CanvasLayer" method="_on_credits_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ButtonContainer/Exit Button" to="CanvasLayer" method="_on_exit_button_pressed"]

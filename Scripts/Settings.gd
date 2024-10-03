@@ -8,6 +8,7 @@ func _ready() -> void:
 	fullscreen_toggle.button_pressed = globals.is_game_in_fullscreen;
 	scroll_toggle.button_pressed = globals.is_scroll_inverted
 	millisec_toggle.button_pressed = globals.is_showing_miliseconds
+	fullscreen_toggle.grab_focus();
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	if (toggled_on):
@@ -19,7 +20,6 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 
 
 func _on_button_pressed() -> void:
-	# as a test
 	get_tree().change_scene_to_file("res://Scenes/Start_screen.tscn");
 
 

@@ -1,0 +1,104 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckrc4oj347i4x"]
+
+[ext_resource type="Script" path="res://Scripts/Credits.gd" id="1_5epu5"]
+[ext_resource type="LabelSettings" uid="uid://wgpp0vj6ikbh" path="res://Resources/credits_label_settings.tres" id="1_wggqr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i1axu"]
+font_size = 20
+font_color = Color(0.325441, 0.325441, 0.325441, 1)
+
+[node name="Credits" type="CanvasLayer"]
+script = ExtResource("1_5epu5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -479.5
+offset_top = -60.5
+offset_right = 479.5
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Game  by: "
+label_settings = ExtResource("1_wggqr")
+
+[node name="Name" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "TFCB93"
+label_settings = ExtResource("1_wggqr")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Fonts: "
+label_settings = ExtResource("1_wggqr")
+
+[node name="Name" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Lilita One by Juan Montoreano and Matemasie by The Matemasie-Font Project Authors"
+label_settings = ExtResource("1_wggqr")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Images by: "
+label_settings = ExtResource("1_wggqr")
+
+[node name="Name" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "TFCB93"
+label_settings = ExtResource("1_wggqr")
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Fonts are under the Open Font License (OFL)
+Images  are marked with CC0 1.0
+This game code is under the MIT License"
+label_settings = SubResource("LabelSettings_i1axu")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -115.0
+offset_top = -91.0
+offset_right = 115.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
