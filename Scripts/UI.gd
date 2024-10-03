@@ -10,6 +10,7 @@ func _ready() -> void:
 	events.connect("add_time", _on_add_time);
 	events.connect("game_stop", _on_game_stop);
 	runTimer.timeout.connect(game_stop);
+
 	
 func _process(_delta: float) -> void:
 	if (not runTimer.is_stopped()):
@@ -21,15 +22,17 @@ func increase_score() -> void:
 	scoreLabel.text = str(player_globals.score);
 	
 
-# Eu também acho que não deveria começar o timer por aqui, mas sim por outra fonte. Aqui deveria só mostrar o tempo
-# Eu posso olhar o exemplo inicial do godot para ver como ele cuida do tempo, pois ficar enviando sinal toda vez que o tempo muda é ruim
+# Maybe starting the timer in the UI is not good, but for now it is what it is
 func start_timer() -> void:
 	runTimer.start(globals.game_time);
 	globals.time_is_out = false;
 	scoreLabel.text = str(player_globals.score);
 
 func game_stop() -> void:
-	timerLabel.text = "0:000"; # Yeah yeah, I know...
+	if (globals.is_showing_miliseconds):
+		timerLabel.text = "0:000"; # I need to do that otherwise the time can stop in a strange way
+	else:
+		timerLabel.text = "00";
 	runTimer.stop();
 	globals.time_is_out = true;
 	events.emit_signal("timer_end");
@@ -38,8 +41,11 @@ func _on_game_stop() -> void:
 	runTimer.stop();
 
 func set_timer_text() -> void:
-	timerLabel.text = "%1.3f" % runTimer.time_left;
-	timerLabel.text = timerLabel.text.replace(".",":");
+	if (globals.is_showing_miliseconds):
+		timerLabel.text = "%1.3f" % runTimer.time_left;
+		timerLabel.text = timerLabel.text.replace(".",":");
+	else:
+		timerLabel.text = "%2d" % runTimer.time_left;
 
 func _on_add_time(additionalTime) -> void:
 	runTimer.start(runTimer.time_left + additionalTime);

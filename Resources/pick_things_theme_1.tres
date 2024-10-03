@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bilciu2sbv7on"]
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://bilciu2sbv7on"]
 
 [ext_resource type="FontFile" uid="uid://bpnkx737td50n" path="res://Resources/Fonts/Lilita_One/LilitaOne-Regular.ttf" id="1_wtf4s"]
 [ext_resource type="FontFile" uid="uid://basrgy0817uum" path="res://Resources/Fonts/Matemasie/Matemasie-Regular.ttf" id="1_xo68n"]
@@ -35,6 +35,18 @@ texture_margin_top = 10.0
 texture_margin_right = 11.0
 texture_margin_bottom = 10.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j61mh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_awjfi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_30c1o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0i1vx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_id1q4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ca2iu"]
+
 [resource]
 BigLabel/base_type = &"Label"
 BigLabel/font_sizes/font_size = 64
@@ -48,5 +60,16 @@ Button/styles/disabled = SubResource("StyleBoxTexture_w8uqf")
 Button/styles/focus = SubResource("StyleBoxTexture_fvgld")
 Button/styles/hover = SubResource("StyleBoxTexture_j87c3")
 Button/styles/normal = SubResource("StyleBoxTexture_cmsm7")
+CheckButton/colors/font_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_focus_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_hover_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+CheckButton/styles/disabled = SubResource("StyleBoxTexture_j61mh")
+CheckButton/styles/focus = SubResource("StyleBoxTexture_awjfi")
+CheckButton/styles/hover = SubResource("StyleBoxTexture_30c1o")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxTexture_0i1vx")
+CheckButton/styles/normal = SubResource("StyleBoxTexture_id1q4")
+CheckButton/styles/pressed = SubResource("StyleBoxTexture_ca2iu")
 Label/font_sizes/font_size = 36
 Label/fonts/font = ExtResource("1_wtf4s")

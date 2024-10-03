@@ -51,5 +51,4 @@ alignment = 2
 
 [node name="Text - Timer" type="Label" parent="HBoxContainer2"]
 layout_mode = 2
-text = "00:000"
 label_settings = SubResource("LabelSettings_4t7gm")

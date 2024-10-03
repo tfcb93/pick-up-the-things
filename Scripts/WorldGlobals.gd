@@ -9,3 +9,8 @@ var total_collected := 0;
 var time_is_out := false;
 var game_time := game_initial_time;
 var game_is_stop := false;
+
+# settings
+var is_game_in_fullscreen := false;
+var is_scroll_inverted := false;
+var is_showing_miliseconds := true;

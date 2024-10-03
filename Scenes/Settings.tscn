@@ -18,28 +18,25 @@ offset_bottom = 30.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer"]
+[node name="fullscreen" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
 text = "Full screen"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-visible = false
+[node name="invert_scroll" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 107
+text = "Invert zoom scroll"
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="show_mili" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "Volume"
-
-[node name="HSlider" type="HSlider" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_direction = 3
-layout_mode = 2
-size_flags_vertical = 4
+button_pressed = true
+text = "Show miliseconds
+"
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "back"
 
-[connection signal="toggled" from="VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="VBoxContainer/fullscreen" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="VBoxContainer/invert_scroll" to="." method="_on_invert_scroll_toggled"]
+[connection signal="toggled" from="VBoxContainer/show_mili" to="." method="_on_show_mili_toggled"]
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

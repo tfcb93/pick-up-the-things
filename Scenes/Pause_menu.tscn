@@ -36,18 +36,20 @@ alignment = 1
 
 [node name="Back" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Exit")
+focus_neighbor_bottom = NodePath("../Reset")
 text = "Back to the game"
 
 [node name="Reset" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Back")
+focus_neighbor_bottom = NodePath("../Exit")
 text = "Reset"
-
-[node name="Settings" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Settings"
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Reset")
+focus_neighbor_bottom = NodePath("../Back")
 text = "Exit to main screen"
 
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

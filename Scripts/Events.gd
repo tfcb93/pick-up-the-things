@@ -17,3 +17,6 @@ signal restart_game;
 
 signal is_paused;
 signal is_unpaused;
+
+
+signal invert_mouse(is_inverted: bool);

@@ -11,6 +11,8 @@ extends SpringArm3D;
 func _ready() -> void:
 	# this is necessary, otherwise the camera will move 
 	set_as_top_level(true);
+	invert_wheel_movement = globals.is_scroll_inverted;
+	events.connect("invert_mouse", _on_mouse_inverted);
 
 func _process(_delta: float) -> void:
 	if (not globals.time_is_out and not globals.game_is_stop):
@@ -18,6 +20,9 @@ func _process(_delta: float) -> void:
 	else:
 		game_stop_camera();
 		
+func _on_mouse_inverted(is_inverted: bool) -> void:
+	invert_wheel_movement = is_inverted;
+
 func _unhandled_input(event: InputEvent) -> void:
 	if (not globals.game_is_stop):
 		if (event is InputEventMouseMotion):
