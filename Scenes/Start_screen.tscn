@@ -33,7 +33,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"BigLabel"
-text = "Pick the things!"
+text = "Pick up the things!"
 label_settings = SubResource("LabelSettings_0tmt6")
 
 [node name="ButtonContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer"]
