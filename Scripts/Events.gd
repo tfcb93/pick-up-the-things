@@ -19,4 +19,5 @@ signal is_paused;
 signal is_unpaused;
 
 
-signal invert_mouse(is_inverted: bool);
+signal invert_scroll(is_inverted: bool);
+signal invert_camera(is_inverted: bool);

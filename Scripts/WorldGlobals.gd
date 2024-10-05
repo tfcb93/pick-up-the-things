@@ -13,4 +13,5 @@ var game_is_stop := false;
 # settings
 var is_game_in_fullscreen := false;
 var is_scroll_inverted := false;
+var is_camera_inverted := false;
 var is_showing_miliseconds := true;

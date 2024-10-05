@@ -37,6 +37,10 @@ focus_neighbor_top = NodePath("../fullscreen")
 focus_neighbor_bottom = NodePath("../show_mili")
 text = "Invert zoom scroll"
 
+[node name="invert_camera" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+text = "Invert camera movement "
+
 [node name="show_mili" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../invert_scroll")
@@ -53,5 +57,6 @@ text = "back"
 
 [connection signal="toggled" from="VBoxContainer/fullscreen" to="." method="_on_check_button_toggled"]
 [connection signal="toggled" from="VBoxContainer/invert_scroll" to="." method="_on_invert_scroll_toggled"]
+[connection signal="toggled" from="VBoxContainer/invert_camera" to="." method="_on_invert_camera_toggled"]
 [connection signal="toggled" from="VBoxContainer/show_mili" to="." method="_on_show_mili_toggled"]
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

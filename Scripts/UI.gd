@@ -43,7 +43,6 @@ func _on_game_stop() -> void:
 func set_timer_text() -> void:
 	if (globals.is_showing_miliseconds):
 		timerLabel.text = "%1.3f" % runTimer.time_left;
-		timerLabel.text = timerLabel.text.replace(".",":");
 	else:
 		timerLabel.text = "%2d" % runTimer.time_left;
 
