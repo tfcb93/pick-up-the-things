@@ -25,7 +25,7 @@ This document doesn't plan on explaining everything about it but points out a fe
 
 
 ### Camera moviment
-The code for the camera pivot uses some content from the video [3D Movement in Godot in Only 6 Minutes](https://www.youtube.com/watch?v=UpF7wm0186Q) by [GDQuest](https://www.gdquest.com/). Lines 24 to 28 are specifically from the video, and might as well contain other tips from there.  
+The code for the camera pivot uses some content from the video [3D Movement in Godot in Only 6 Minutes](https://www.youtube.com/watch?v=UpF7wm0186Q) by [GDQuest](https://www.gdquest.com/). Lines 35 to 39 are specifically from the video, and might as well contain other tips from there.  
 The rest of the code also includes controls for zoom using both controllers and keyboard + mouse.
 
 

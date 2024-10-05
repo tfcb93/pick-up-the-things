@@ -57,12 +57,12 @@ func _camera_movement() -> void:
 	
 	var rotation_y := Input.get_axis("camera_left","camera_right");
 	if (rotation_y != 0):
-		rotation_degrees.y += rotation_y;
+		rotation_degrees.y += rotation_y if (not invert_camera_movement) else rotation_y * -1;
 		rotation_degrees.y = wrap(rotation_degrees.y, 0.0, 360.0);
 		
 	var rotation_x := Input.get_axis("camera_down","camera_up");
 	if (rotation_x != 0):
-		rotation_degrees.x += rotation_x;
+		rotation_degrees.x += rotation_x if (not invert_camera_movement) else rotation_x * -1;
 		rotation_degrees.x = clamp(rotation_degrees.x, -45.0, 0.0);
 
 func game_stop_camera() -> void:

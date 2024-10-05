@@ -34,16 +34,18 @@ text = "Full screen"
 [node name="invert_scroll" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../fullscreen")
-focus_neighbor_bottom = NodePath("../show_mili")
+focus_neighbor_bottom = NodePath("../invert_camera")
 text = "Invert zoom scroll"
 
 [node name="invert_camera" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../invert_scroll")
+focus_neighbor_bottom = NodePath("../show_mili")
 text = "Invert camera movement "
 
 [node name="show_mili" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../invert_scroll")
+focus_neighbor_top = NodePath("../invert_camera")
 focus_neighbor_bottom = NodePath("../Button")
 button_pressed = true
 text = "Show miliseconds
